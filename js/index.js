@@ -11,8 +11,12 @@ navigator.bluetooth.requestDevice({
 })
 
 .then(server => {
-	alert("Server Connected!");
-	server.getPrimaryService(0xFC00);
+	alert("Connection established.");
+	return new Promise(resolve => {
+	this.async(() => {
+		resolve(server.getPrimaryService(0xFC00));
+	}, 2000);
+	});
 })
 
 .then(service => {
