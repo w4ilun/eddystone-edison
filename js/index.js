@@ -13,6 +13,7 @@
 		})
 		.then(server => {
 			console.log('Connected to GATT server');
+			alert(server);
 			return server.getPrimaryService(0xFC00);
 		})
 		.then(service => {
