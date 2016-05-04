@@ -8,20 +8,20 @@
 			optionalServices: [0xFC00]
 		})
 		.then(device => {
-			console.log('Device Name: ' + device.name);
-			return device.gatt ? device.gatt.connect() : device.connectGATT();
+			console.log(device.name);
+			return device.gatt.connect();
 		})
 		.then(server => {
 			console.log('Connected to GATT server');
 			return server.getPrimaryService(0xFC00);
 		})
-		// .then(service => {
-		// 	console.log('Getting Characteristics...');
-		// 	return service.getCharacteristic(0xFC0B);
-		// })
-		// .then(characteristic =>{
-		// 	console.log(characteristic);
-		// })
+		.then(service => {
+			console.log('Getting Characteristics...');
+			return service.getCharacteristic(0xFC0B);
+		})
+		.then(characteristic =>{
+			console.log(characteristic);
+		})
 		.catch(error => {
 			console.log(error);
 		});
