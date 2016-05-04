@@ -23,6 +23,7 @@
 		// 	console.log(characteristic);
 		// })
 		.catch(error => {
+			alert(error);
 			console.log(error);
 		});
 	}
