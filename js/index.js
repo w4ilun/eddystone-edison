@@ -15,13 +15,14 @@
 			console.log('Connected to GATT server');
 			return server.getPrimaryService(0xFC00);
 		})
-		// .then(service => {
-		// 	console.log('Getting Characteristics...');
-		// 	return service.getCharacteristic(0xFC0B);
-		// })
-		// .then(characteristic =>{
-		// 	console.log(characteristic);
-		// })
+		.then(service => {
+			console.log('Getting Characteristics...');
+			return service.getCharacteristic(0xFC0B);
+		})
+		.then(characteristic =>{
+			alert(characteristic);
+			console.log(characteristic);
+		})
 		.catch(error => {
 			alert(error);
 			console.log(error);
