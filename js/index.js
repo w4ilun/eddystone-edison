@@ -3,7 +3,6 @@
 	let deviceName = 'Edison';
 
 	function connect(){
-		alert('test');
 		navigator.bluetooth.requestDevice({
 			filters: [{ name: deviceName }],
 			optionalServices: [0xFC00]
@@ -13,7 +12,7 @@
 		})
 		.catch(error => {
 			alert(error);
-		})
+		});
 	}
 
 	function init(){
