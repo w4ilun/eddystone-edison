@@ -9,6 +9,7 @@
 		})
 		.then(device => {
 			console.log(device.name);
+			alert(device.name);
 			return device.gatt.connect();
 		})
 		.then(server => {
