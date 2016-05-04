@@ -6,8 +6,12 @@
 		navigator.bluetooth.requestDevice({
 			filters: [{ name: deviceName }],
 			optionalServices: [0xFC00]
-		}).then(device => {
+		})
+		.then(device => {
 			alert(device.name);
+		})
+		.catch(error => {
+			alert(error);
 		})
 	}
 
