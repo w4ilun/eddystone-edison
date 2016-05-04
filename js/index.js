@@ -1,4 +1,25 @@
-(function(){
+(window => {
+
+	let deviceName = 'Edison';
+
+	function connect(){
+		navigator.bluetooth.requestDevice({
+			filters: [{ name: deviceName }],
+			optionalServices: [0xFC00]
+		}).then(device => {
+			alert(device.name);
+		})
+	}
+
+	function init(){
+		document.querySelector('#connect').addEventListener('click', connect);
+	}
+
+	document.addEventListener('DOMContentLoaded', init);
+
+})(window);
+
+/*(function(){
 
 navigator.bluetooth.requestDevice({
   filters: [{ name: 'Edison' }],
@@ -38,4 +59,4 @@ navigator.bluetooth.requestDevice({
   // Connection fully established, unless there was an error above.
 });
 
-})();
+})();*/
