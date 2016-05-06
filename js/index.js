@@ -12,7 +12,7 @@
 		.then(server => {
 			return new Promise(resolve => {
 				setTimeout(() => {
-					resolve(server.getPrimaryService(0xFC00));
+					resolve(server.getPrimaryService('fc00'));
 				}, 2000);
 			});
 		})
