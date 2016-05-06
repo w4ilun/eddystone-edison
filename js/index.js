@@ -11,7 +11,7 @@
 		})
 		.then(server => {
 			return new Promise(resolve => {
-				this.async(() => {
+				setTimeout(() => {
 					resolve(server.getPrimaryService(0xFC00));
 				}, 2000);
 			});
