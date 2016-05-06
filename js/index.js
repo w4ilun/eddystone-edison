@@ -1,10 +1,8 @@
 (window => {
 
-	let deviceName = 'Edison';
-
 	function connect(){
 		navigator.bluetooth.requestDevice({
-			filters: [{ name: deviceName }],
+			filters: [{ name: 'Edison' }],
 			optionalServices: [0xFC00]
 		})
 		.then(device => {
@@ -12,9 +10,11 @@
 			return device.gatt ? device.gatt.connect() : device.connectGATT();
 		})
 		.then(server => {
-			console.log('Connected to GATT server');
-			alert(server);
-			return server.getPrimaryService(0xFC00);
+			return new Promise(resolve => {
+				this.async(() => {
+					resolve(server.getPrimaryService(0xFC00));
+				}, 2000);
+			});
 		})
 		.then(service => {
 			console.log('Getting Characteristics...');
